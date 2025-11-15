@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete your hackathon registration payment securely">
+  <title>Payment Portal | HACKSYMMETRIC 2026</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Asymmetric Logo">
+      <h2>Asymmetric</h2>
+    </div>
+    <h1>Payment Portal</h1>
+    <input type="checkbox" id="menu-toggle">
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+    <nav aria-label="Main navigation">
+      <button onclick="location.href='main_site.html'" aria-label="Home">Home</button>
+      <button onclick="location.href='about-team.html'" aria-label="About Team">Team</button>
+      <button onclick="location.href='about-hackathon.html'" aria-label="About Hackathon">About Hackathon</button>
+      <button onclick="location.href='topic.html'" aria-label="Topics">Topics</button>
+      <button onclick="location.href='picture.html'" aria-label="Gallery">Gallery</button>
+      <button onclick="location.href='register.html'" aria-label="Register">Register</button>
+      <button onclick="location.href='payment.html'" aria-label="Payment">Payment</button>
+      <button onclick="location.href='contact.html'" aria-label="Contact">Contact</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="payment-info">
+      <h2>Complete Your Registration Payment</h2>
+      <div class="price-breakdown">
+        <div class="price-item">
+          <span>Registration Fee (Per Team):</span>
+          <strong></strong>
+        </div>
+      
+      <div class="payment-notes">
+        <h3>Important Notes:</h3>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </section>
+
+    <form id="paymentForm" method="POST" action="process_payment.php" onsubmit="return validatePayment()">
+      
+      <fieldset>
+        <legend>Registration Details</legend>
+        
+        <label for="registrationId">Registration ID: <span class="required">*</span></label>
+        <input type="text" id="registrationId" name="registrationId" required placeholder="Enter your registration ID">
+        <p class="help-text">You received this ID via email after registration</p>
+        
+        <label for="teamName">Team Name: <span class="required">*</span></label>
+        <input type="text" id="teamName" name="teamName" required placeholder="Enter your team name">
+        
+        <label for="leaderEmail">Team Leader Email: <span class="required">*</span></label>
+        <input type="email" id="leaderEmail" name="leaderEmail" required placeholder="your.email@example.com">
+      </fieldset>
+
+      <fieldset>
+        <legend>Select Payment Method</legend>
+        
+        <div class="payment-methods">
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="upi" required onchange="showPaymentSection('upi')">
+            <div class="option-content">
+              <h3> UPI Payment</h3>
+              <p>Google Pay, PhonePe, Paytm, etc.</p>
+              <span class="recommended">Recommended</span>
+            </div>
+          </label>
+          
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="card" onchange="showPaymentSection('card')">
+            <div class="option-content">
+              <h3> Debit/Credit Card</h3>
+              <p>Visa, Mastercard, RuPay, Amex</p>
+            </div>
+          </label>
+          
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="netbanking" onchange="showPaymentSection('netbanking')">
+            <div class="option-content">
+              <h3>Net Banking</h3>
+              <p>All major banks supported</p>
+            </div>
+          </label>
+          
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="bank" onchange="showPaymentSection('bank')">
+            <div class="option-content">
+              <h3>Bank Transfer</h3>
+              <p>NEFT/RTGS/IMPS</p>
+            </div>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset id="upiSection" class="payment-section" style="display: none;">
+        <legend><strong>UPI Payment Details</strong></legend>
+        
+        <div class="upi-info">
+          <h3>Scan QR Code or Use UPI ID</h3>
+          <div class="qr-code">
+            <img src="upi-qr-placeholder.png" alt="UPI QR Code" style="width: 200px; height: 200px; border: 2px solid #ccc;">
+            <p>Scan with any UPI app</p>
+          </div>
+          
+          <div class="upi-id-section">
+            <p><strong>Or pay using UPI ID:</strong></p>
+            <div class="copy-box">
+              <code id="upiId"></code>
+              <button type="button" onclick="copyUPI()" class="copy-btn">Copy UPI ID</button>
+            </div>
+          </div>
+        </div>
+        
+        <label for="upiApp">Select UPI App: <span class="required">*</span></label>
+        <select id="upiApp" name="upiApp">
+          <option value="">Choose your app</option>
+          <option value="gpay">Google Pay</option>
+          <option value="phonepe">PhonePe</option>
+          <option value="paytm">Paytm</option>
+          <option value="bhim">BHIM</option>
+          <option value="amazonpay">Amazon Pay</option>
+          <option value="other">Other UPI App</option>
+        </select>
+        
+        <label for="upiTransactionId">UPI Transaction ID: <span class="required">*</span></label>
+        <input type="text" id="upiTransactionId" name="upiTransactionId" placeholder="Enter 12-digit transaction ID">
+        <p class="help-text">Find this in your UPI app's transaction history</p>
+        
+        <label for="upiNumber">UPI ID Used for Payment: <span class="required">*</span></label>
+        <input type="text" id="upiNumber" name="upiNumber" placeholder="yourname@upi">
+        
+        <label for="upiScreenshot">Upload Payment Screenshot (Optional):</label>
+        <input type="file" id="upiScreenshot" name="upiScreenshot" accept="image/*">
+      </fieldset>
+
+      <fieldset id="cardSection" class="payment-section" style="display: none;">
+        <legend><strong>Debit/Credit Card Payment</strong></legend>
+        
+        <div class="security-badge">
+          <p>Your payment is secure and encrypted</p>
+        </div>
+        
+        <label for="cardType">Card Type: <span class="required">*</span></label>
+        <select id="cardType" name="cardType">
+          <option value="">Select card type</option>
+          <option value="debit">Debit Card</option>
+          <option value="credit">Credit Card</option>
+        </select>
+        
+        <label for="cardHolder">Card Holder Name: <span class="required">*</span></label>
+        <input type="text" id="cardHolder" name="cardHolder" placeholder="Name as on card" pattern="[A-Za-z\s]+" maxlength="50">
+        
+        <label for="cardNumber">Card Number: <span class="required">*</span></label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" pattern="\d{4}\s\d{4}\s\d{4}\s\d{4}" oninput="formatCardNumber(this)">
+        
+        <div class="card-details-row">
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date: <span class="required">*</span></label>
+            <input type="month" id="expiryDate" name="expiryDate" min="2025-11">
+          </div>
+          
+          <div class="form-group">
+            <label for="cvv">CVV: <span class="required">*</span></label>
+            <input type="password" id="cvv" name="cvv" placeholder="123" maxlength="4" pattern="\d{3,4}">
+            <p class="help-text">3 or 4 digits on back of card</p>
+          </div>
+        </div>
+        
+        <label for="cardEmail">Email for Receipt: <span class="required">*</span></label>
+        <input type="email" id="cardEmail" name="cardEmail" placeholder="you@example.com">
+        
+        <label for="billingAddress">Billing Address:</label>
+        <textarea id="billingAddress" name="billingAddress" rows="3" placeholder="Enter your billing address"></textarea>
+      </fieldset>
+
+      <fieldset id="netbankingSection" class="payment-section" style="display: none;">
+        <legend><strong>Net Banking Payment</strong></legend>
+        
+        <label for="bankName">Select Your Bank: <span class="required">*</span></label>
+        <select id="bankName" name="bankName">
+          <option value="">Choose your bank</option>
+          <optgroup label="Popular Banks">
+            <option value="sbi">State Bank of India</option>
+            <option value="hdfc">HDFC Bank</option>
+            <option value="icici">ICICI Bank</option>
+            <option value="axis">Axis Bank</option>
+            <option value="pnb">Punjab National Bank</option>
+            <option value="bob">Bank of Baroda</option>
+            <option value="kotak">Kotak Mahindra Bank</option>
+          </optgroup>
+          <optgroup label="Other Banks">
+            <option value="idbi">IDBI Bank</option>
+            <option value="yes">Yes Bank</option>
+            <option value="indusind">IndusInd Bank</option>
+            <option value="canara">Canara Bank</option>
+            <option value="union">Union Bank</option>
+            <option value="other">Other Bank</option>
+          </optgroup>
+        </select>
+        
+        <div class="netbanking-info">
+          <p><strong>Steps to Complete Payment:</strong></p>
+          <ol>
+            <li>Click "Proceed to Payment" button below</li>
+            <li>You'll be redirected to your bank's secure login page</li>
+            <li>Login with your net banking credentials</li>
+            <li>Verify payment details and confirm</li>
+            <li>Save the transaction reference number</li>
+          </ol>
+        </div>
+        
+        <label for="netbankingTransactionId">Transaction Reference Number: <span class="required">*</span></label>
+        <input type="text" id="netbankingTransactionId" name="netbankingTransactionId" placeholder="Enter after completing payment">
+        <p class="help-text">You'll receive this after successful payment</p>
+      </fieldset>
+
+      <fieldset id="bankSection" class="payment-section" style="display: none;">
+        <legend><strong>Bank Transfer Details</strong></legend>
+        
+        <div class="bank-details">
+          <h3>Transfer Amount to:</h3>
+          <div class="detail-row">
+            <span class="label">Account Name:</span>
+            <strong></strong>
+          </div>
+          <div class="detail-row">
+            <span class="label">Account Number:</span>
+            <strong></strong>
+            <button type="button" onclick="copyText('')" class="copy-btn-small">Copy</button>
+          </div>
+          <div class="detail-row">
+            <span class="label">IFSC Code:</span>
+            <strong></strong>
+            <button type="button" onclick="copyText('')" class="copy-btn-small">Copy</button>
+          </div>
+          <div class="detail-row">
+            <span class="label">Bank Name:</span>
+            <strong></strong>
+          </div>
+          <div class="detail-row">
+            <span class="label">Branch:</span>
+            <strong></strong>
+          </div>
+          <div class="detail-row">
+            <span class="label">Account Type:</span>
+            <strong></strong>
+          </div>
+        </div>
+        
+        <label for="senderName">Your Name (Account Holder): <span class="required">*</span></label>
+        <input type="text" id="senderName" name="senderName" placeholder="Name as per bank account">
+        
+        <label for="senderAccount">Your Account Number: <span class="required">*</span></label>
+        <input type="text" id="senderAccount" name="senderAccount" placeholder="Your bank account number">
+        
+        <label for="senderBank">Your Bank Name: <span class="required">*</span></label>
+        <input type="text" id="senderBank" name="senderBank" placeholder="Your bank name">
+        
+        <label for="senderIFSC">Your Bank IFSC Code: <span class="required">*</span></label>
+        <input type="text" id="senderIFSC" name="senderIFSC" placeholder="Your bank IFSC code" maxlength="11">
+        
+        <label for="transferMode">Transfer Mode: <span class="required">*</span></label>
+        <select id="transferMode" name="transferMode">
+          <option value="">Select transfer mode</option>
+          <option value="neft">NEFT</option>
+          <option value="rtgs">RTGS</option>
+          <option value="imps">IMPS</option>
+        </select>
+        
+        <label for="bankTransactionId">Transaction Reference Number: <span class="required">*</span></label>
+        <input type="text" id="bankTransactionId" name="bankTransactionId" placeholder="UTR/Reference number">
+        <p class="help-text">You'll receive this after successful transfer</p>
+        
+        <label for="transferDate">Date of Transfer: <span class="required">*</span></label>
+        <input type="date" id="transferDate" name="transferDate" max="2025-11-30">
+        
+        <label for="transferReceipt">Upload Transfer Receipt:</label>
+        <input type="file" id="transferReceipt" name="transferReceipt" accept="image/*,application/pdf">
+      </fieldset>
+
+      <fieldset>
+        <legend>Confirmation</legend>
+        
+        <label class="checkbox-label">
+          <input type="checkbox" id="confirmPayment" name="confirmPayment" required>
+          I confirm that I have made the payment of ₹499 and the details provided are accurate <span class="required">*</span>
+        </label>
+        
+        <label class="checkbox-label">
+          <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+          I agree that the registration fee is non-refundable <span class="required">*</span>
+        </label>
+      </fieldset>
+
+      <div class="form-actions">
+        <button type="submit" class="submit-payment-btn">Submit Payment Details</button>
+        <button type="button" onclick="location.href='contact.html'" class="help-btn">Need Help?</button>
+      </div>
+      
+      <p class="form-note"><span class="required">*</span> Required fields</p>
+    </form>
+  </main>
+  <script>
+    function showPaymentSection(method) {
+      const sections = document.querySelectorAll('.payment-section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+        const inputs = section.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+          if (input.type !== 'file') {
+            input.removeAttribute('required');
+          }
+        });
+      });
+      
+      const selectedSection = document.getElementById(method + 'Section');
+      if (selectedSection) {
+        selectedSection.style.display = 'block';
+        
+        const requiredInputs = selectedSection.querySelectorAll('input:not([type="file"]), select');
+        requiredInputs.forEach(input => {
+          const label = selectedSection.querySelector(`label[for="${input.id}"]`);
+          if (label && label.textContent.includes('*')) {
+            input.setAttribute('required', 'required');
+          }
+        });
+      }
+    }
+
+    function copyUPI() {
+      const upiId = document.getElementById('upiId').textContent;
+      navigator.clipboard.writeText(upiId).then(() => {
+        alert('UPI ID copied: ' + upiId);
+      });
+    }
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Copied: ' + text);
+      });
+    }
+
+    function formatCardNumber(input) {
+      let value = input.value.replace(/\s/g, '');
+      let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+      input.value = formattedValue;
+    }
+
+    function validatePayment() {
+      const method = document.querySelector('input[name="paymentMethod"]:checked');
+      if (!method) {
+        alert('Please select a payment method');
+        return false;
+      }
+
+      const registrationId = document.getElementById('registrationId').value;
+      if (!registrationId) {
+        alert('Please enter your registration ID');
+        return false;
+      }
+
+      const confirmPayment = document.getElementById('confirmPayment').checked;
+      const agreeTerms = document.getElementById('agreeTerms').checked;
+      
+      if (!confirmPayment || !agreeTerms) {
+        alert('Please confirm all checkboxes');
+        return false;
+      }
+
+      if (method.value === 'upi') {
+        const transactionId = document.getElementById('upiTransactionId').value;
+        if (transactionId.length < 10) {
+          alert('Please enter a valid UPI transaction ID');
+          return false;
+        }
+      } else if (method.value === 'card') {
+        const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+        if (cardNumber.length !== 16) {
+          alert('Please enter a valid 16-digit card number');
+          return false;
+        }
+        const cvv = document.getElementById('cvv').value;
+        if (cvv.length < 3 || cvv.length > 4) {
+          alert('Please enter a valid CVV');
+          return false;
+        }
+      }
+
+      if (confirm('Are you sure you want to submit the payment details? Please verify all information before submitting.')) {
+        alert('Payment details submitted successfully! You will receive a confirmation email within 2-4 hours after verification.');
+        return true;
+      }
+      
+      return false;
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+    const transferDateInput = document.getElementById('transferDate');
+    if (transferDateInput) {
+      transferDateInput.setAttribute('max', today);
+    }
+  </script>
+  <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.querySelector('nav');
+  const hamburger = document.querySelector('.hamburger');
+  
+  if (hamburger && menuToggle && nav) {
+    hamburger.addEventListener('click', function() {
+      menuToggle.checked = !menuToggle.checked;
+    });
+    
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = nav.contains(event.target);
+      const isClickOnHamburger = event.target.closest('.hamburger');
+      
+      if (!isClickInsideNav && !isClickOnHamburger && menuToggle.checked) {
+        menuToggle.checked = false;
+      }
+    });
+  }
+</script>
+</body>
+</html>
