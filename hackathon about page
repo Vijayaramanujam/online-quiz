@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about HACKSYMMETRIC 2026 - rules, rounds, schedule, prizes, and more">
+  <title>About the Hackathon | HACKSYMMETRIC 2026</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Asymmetric Logo">
+      <h2>Asymmetric</h2>
+    </div>
+    <h1>About HACKSYMMETRIC 2026</h1>
+    <input type="checkbox" id="menu-toggle">
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+    <nav aria-label="Main navigation">
+      <button onclick="location.href='main_site.html'" aria-label="Home">Home</button>
+      <button onclick="location.href='about-team.html'" aria-label="About Team">Team</button>
+      <button onclick="location.href='about-hackathon.html'" aria-label="About Hackathon">About Hackathon</button>
+      <button onclick="location.href='topic.html'" aria-label="Topics">Topics</button>
+      <button onclick="location.href='picture.html'" aria-label="Gallery">Gallery</button>
+      <button onclick="location.href='register.html'" aria-label="Register">Register</button>
+      <button onclick="location.href='payment.html'" aria-label="Payment">Payment</button>
+      <button onclick="location.href='contact.html'" aria-label="Contact">Contact</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="overview">
+      <h2>Event Overview</h2>
+      <p>HACKSYMMETRIC 2026 is a premier 24-hour hackathon designed to inspire creative minds to solve real-world problems through technology and innovation. This is your opportunity to collaborate with brilliant minds, learn from industry experts, and bring your ideas to life.</p>
+      
+      <div class="highlights">
+        <div class="highlight-item">
+          <h3>Mission</h3>
+          <p>To foster innovation, creativity, and problem-solving through technology while building a strong community of developers and innovators.</p>
+        </div>
+        <div class="highlight-item">
+          <h3>Who Can Participate?</h3>
+          <p></p>
+        </div>
+        <div class="highlight-item">
+          <h3> Venue</h3>
+          <p></p>
+        </div>
+        <div class="highlight-item">
+          <h3>Total Prize Pool</h3>
+          <p><strong></strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rounds">
+      <h2>Competition Rounds</h2>
+      
+      <article class="round">
+        <div class="round-number">Round 1</div>
+        <h3>Idea Submission & Screening</h3>
+        <p><strong>Date:</strong> November 1-8, 2025</p>
+        <ul>
+          <li>Submit your project idea and team details through the registration form</li>
+          <li>Include problem statement, proposed solution, and expected impact</li>
+          <li>Our panel will review all submissions and select qualified teams</li>
+          <li>Selected teams will be notified by November 10, 2025</li>
+        </ul>
+      </article>
+
+      <article class="round">
+        <div class="round-number">Round 2</div>
+        <h3>Prototype Development</h3>
+        <p><strong>Date:</strong> November 15, 2025</p>
+        <ul>
+          <li>Present your initial prototype or MVP (Minimum Viable Product)</li>
+          <li>5-minute presentation followed by Q&A with judges</li>
+          <li>Demonstrate technical feasibility and progress</li>
+          <li>Receive feedback and guidance from mentors</li>
+          <li>Top 50 teams advance to the final round</li>
+        </ul>
+      </article>
+
+      <article class="round">
+        <div class="round-number">Round 3</div>
+        <h3>Final Presentation & Live Demo</h3>
+        <p><strong>Date:</strong> November 22, 2025 (9:00 AM - 4:00 PM)</p>
+        <ul>
+          <li>24-hour intensive coding marathon starts November 21 at 9:00 AM</li>
+          <li>Final presentations on November 22</li>
+          <li>10-minute pitch including live demonstration</li>
+          <li>Judging based on innovation, technical implementation, impact, and presentation</li>
+          <li>Winners announced at closing ceremony (4:00 PM)</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="rules">
+      <h2>Rules & Guidelines</h2>
+      
+      <div class="rules-category">
+        <h3>Team Formation</h3>
+        <ul>
+          <li>Teams must consist of 1-4 members</li>
+          <li>All team members should be from the same institution (recommended but not mandatory)</li>
+          <li>One person can only be part of one team</li>
+          <li>Team composition cannot be changed after registration closes</li>
+        </ul>
+      </div>
+
+      <div class="rules-category">
+        <h3>Project Requirements</h3>
+        <ul>
+          <li><strong>Originality:</strong> All projects must be original work created during the hackathon</li>
+          <li><strong>No Plagiarism:</strong> Using existing code or projects from previous hackathons is strictly prohibited</li>
+          <li><strong>Open Source:</strong> Teams are encouraged to use open-source libraries and frameworks</li>
+          <li><strong>Code Repository:</strong> All code must be hosted on GitHub and made public after the event</li>
+          <li><strong>Documentation:</strong> Include README with setup instructions and project description</li>
+        </ul>
+      </div>
+
+      <div class="rules-category">
+        <h3>Development Timeline</h3>
+        <ul>
+          <li>All work must be completed within the 24-hour hackathon window</li>
+          <li>Pre-hackathon research and planning is allowed</li>
+          <li>No pre-written code specific to your hackathon project</li>
+          <li>Time tracking and activity logs may be verified</li>
+        </ul>
+      </div>
+
+      <div class="rules-category">
+        <h3>Presentation & Demo</h3>
+        <ul>
+          <li>Each team gets 10 minutes for final presentation (7 min pitch + 3 min Q&A)</li>
+          <li>Live demo is mandatory – videos alone are not acceptable</li>
+          <li>Presentation slides should be submitted 30 minutes before scheduled time</li>
+          <li>All team members should be present during the presentation</li>
+        </ul>
+      </div>
+
+      <div class="rules-category">
+        <h3>Code of Conduct</h3>
+        <ul>
+          <li>Respect all participants, mentors, judges, and organizers</li>
+          <li>No harassment or discrimination of any kind will be tolerated</li>
+          <li>Maintain a collaborative and inclusive environment</li>
+          <li>Follow venue rules and maintain cleanliness</li>
+          <li>Any violation may result in immediate disqualification</li>
+        </ul>
+      </div>
+
+      <div class="rules-category">
+        <h3>Intellectual Property</h3>
+        <ul>
+          <li>Teams retain full ownership of their projects</li>
+          <li>Organizers reserve the right to showcase projects for promotional purposes</li>
+          <li>Patents and commercialization rights belong to the team</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="schedule">
+      <h2>Event Schedule</h2>
+      <p class="schedule-intro">Mark your calendars! Here's the complete timeline for HACKSYMMETRIC 2026:</p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Event</th>
+              <th>Time</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><time datetime="2025-10-16">Oct 16, 2025</time></td>
+              <td><strong>Registration Opens</strong></td>
+              <td>09:00 AM</td>
+              <td>Online registration portal goes live</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-01">Nov 1, 2025</time></td>
+              <td><strong>Registration Closes</strong></td>
+              <td>11:59 PM</td>
+              <td>Last date to submit registration</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-08">Nov 8, 2025</time></td>
+              <td><strong>Idea Submission Deadline</strong></td>
+              <td>11:59 PM</td>
+              <td>Submit detailed project proposal</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-10">Nov 10, 2025</time></td>
+              <td><strong>Selected Teams Announced</strong></td>
+              <td>06:00 PM</td>
+              <td>Email notification to qualified teams</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-15">Nov 15, 2025</time></td>
+              <td><strong>Prototype Evaluation</strong></td>
+              <td>09:00 AM - 05:00 PM</td>
+              <td>Present initial prototype to judges</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-21">Nov 21, 2025</time></td>
+              <td><strong>Hackathon Begins</strong></td>
+              <td>09:00 AM</td>
+              <td>Opening ceremony & 24-hour coding starts</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-21">Nov 21, 2025</time></td>
+              <td>Lunch Break</td>
+              <td>01:00 PM - 02:00 PM</td>
+              <td>Meals provided</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-21">Nov 21, 2025</time></td>
+              <td>Dinner & Networking</td>
+              <td>08:00 PM - 09:00 PM</td>
+              <td>Interact with mentors</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-22">Nov 22, 2025</time></td>
+              <td>Midnight Snacks</td>
+              <td>12:00 AM</td>
+              <td>Energy boost for night owls</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-22">Nov 22, 2025</time></td>
+              <td>Breakfast</td>
+              <td>07:00 AM - 08:00 AM</td>
+              <td>Final sprint begins</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-22">Nov 22, 2025</time></td>
+              <td><strong>Code Freeze</strong></td>
+              <td>09:00 AM</td>
+              <td>All development must stop</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-22">Nov 22, 2025</time></td>
+              <td><strong>Final Presentations</strong></td>
+              <td>10:00 AM - 03:00 PM</td>
+              <td>Teams present to judges</td>
+            </tr>
+            <tr>
+              <td><time datetime="2025-11-22">Nov 22, 2025</time></td>
+              <td><strong>Winner Announcement</strong></td>
+              <td>04:00 PM</td>
+              <td>Closing ceremony & prizes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="prizes">
+      <h2>Prizes & Recognition</h2>
+      
+      <div class="prize-grid">
+        <div class="prize-card grand-prize">
+          <h3> Grand Prize</h3>
+          <p class="prize-amount">""/p>
+          <ul>
+            <li>""</li>
+            <li>""</li>
+            <li>""</li>
+            <li>""</li>
+          </ul>
+        </div>
+
+        <div class="prize-card">
+          <h3> First</h3>
+          <p class="prize-amount">/p>
+          <ul>
+            <li>Certificates</li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+
+        <div class="prize-card">
+          <h3> Second</h3>
+          <p class="prize-amount"></p>
+          <ul>
+            <li>Certificates</li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="cta">
+      <h2>Ready to Join?</h2>
+      <p>Don't miss this incredible opportunity to showcase your skills!</p>
+      <button onclick="location.href='register.html'" class="register-btn">Register Your Team</button>
+      <button onclick="location.href='contact.html'" class="contact-btn">Have Questions?</button>
+    </section>
+  </main>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    document.querySelector('details').setAttribute('open', '');
+  
+  </script>
+  <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.querySelector('nav');
+  const hamburger = document.querySelector('.hamburger');
+  
+  if (hamburger && menuToggle && nav) {
+    hamburger.addEventListener('click', function() {
+      menuToggle.checked = !menuToggle.checked;
+    });
+    
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = nav.contains(event.target);
+      const isClickOnHamburger = event.target.closest('.hamburger');
+      
+      if (!isClickInsideNav && !isClickOnHamburger && menuToggle.checked) {
+        menuToggle.checked = false;
+      }
+    });
+  }
+</script>
+</body>
+</html>
