@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Asymmetric Logo">
+      <h2>Asymmetric</h2>
+    </div>
+    <h1>Event Gallery</h1>
+    <input type="checkbox" id="menu-toggle">
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+    <nav aria-label="Main navigation">
+      <button onclick="location.href='main_site.html'" aria-label="Home">Home</button>
+      <button onclick="location.href='about-team.html'" aria-label="About Team">Team</button>
+      <button onclick="location.href='about-hackathon.html'" aria-label="About Hackathon">About Hackathon</button>
+      <button onclick="location.href='topic.html'" aria-label="Topics">Topics</button>
+      <button onclick="location.href='picture.html'" aria-label="Gallery">Gallery</button>
+      <button onclick="location.href='register.html'" aria-label="Register">Register</button>
+      <button onclick="location.href='payment.html'" aria-label="Payment">Payment</button>
+      <button onclick="location.href='contact.html'" aria-label="Contact">Contact</button>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Photo Section</h2>
+    <p>Our team gallery:</p>
+    <p><img src=""> <img src="" width="300" height="200"></p>
+  </main>
+
+  <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.querySelector('nav');
+  const hamburger = document.querySelector('.hamburger');
+  
+  if (hamburger && menuToggle && nav) {
+    hamburger.addEventListener('click', function() {
+      menuToggle.checked = !menuToggle.checked;
+    });
+    
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = nav.contains(event.target);
+      const isClickOnHamburger = event.target.closest('.hamburger');
+      
+      if (!isClickInsideNav && !isClickOnHamburger && menuToggle.checked) {
+        menuToggle.checked = false;
+      }
+    });
+  }
+</script>
+</body>
+</html>
